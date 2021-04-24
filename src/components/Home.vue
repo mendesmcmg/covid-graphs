@@ -7,37 +7,78 @@
       <div class="data-container">
         <div class="vertical-container">
           <h3>Total de casos</h3>
-          <p>{{ info && info.confirmados.total }}</p>
+          <p>
+            {{
+              info &&
+              new Intl.NumberFormat("pt-BR").format(info.confirmados.total)
+            }}
+          </p>
         </div>
 
         <div class="vertical-container">
           <h3>Total de óbitos</h3>
-          <p>{{ info && info.obitos.total }}</p>
+          <p>
+            {{
+              info && new Intl.NumberFormat("pt-BR").format(info.obitos.total)
+            }}
+          </p>
         </div>
       </div>
+
+      <h4>Selecione a UF</h4>
+      <select v-model="selectedUf">
+        <option v-for="(item, key) in infoState" :value="item._id" :key="key">
+          {{ item._id }}
+        </option>
+      </select>
+      <p>Selecionado {{ selectedUf }}</p>
     </section>
+  </div>
+  <div class="chart-container">
+    <BebeChart />
+    <BebeChart />
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import BebeChart from "./BebeChart";
 export default {
   name: "Home",
+  components: {
+    BebeChart,
+  },
   data() {
     return {
       info: null,
+      infoState: null,
+      selectedUf: "",
       loading: true,
       errored: false,
     };
   },
   mounted() {
-    console.log("a");
+    console.log("oiini");
     axios
       .get(
         "https://xx9p7hp1p7.execute-api.us-east-1.amazonaws.com/prod/PortalGeralApi"
       )
       .then((response) => {
         this.info = response.data;
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+
+    axios
+      .get(
+        "https://xx9p7hp1p7.execute-api.us-east-1.amazonaws.com/prod/PortalEstadoRegiao"
+      )
+      .then((response) => {
+        this.infoState = response.data;
         console.log(response);
       })
       .catch((error) => {
@@ -60,11 +101,30 @@ export default {
 .vertical-container {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin: 2rem 0;
   width: 15rem;
   border-radius: 40px;
   border-radius: 34px;
-  background: #f8f7f7;
+  background: #23897f;
+  font-size: 22px;
+  color: #fff;
   box-shadow: 10px 10px 31px #e7e6e6, -10px -10px 31px #ffffff;
+}
+
+h4 {
+  color: #2c3e50;
+  font-size: 22px;
+}
+
+select,
+option {
+  font-size: 20px;
+  margin: 0;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem
 }
 </style>
