@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <h1>Covid Graphs</h1>
-    <p>Esta é uma página para mostrar dados de COVID-19 no Brasil</p>
+    <h1>Números da Covid no Brasil</h1>
 
     <section>
       <div class="data-container">
@@ -105,19 +104,22 @@ export default {
 .vertical-container {
   display: flex;
   flex-direction: column;
-  margin: 2rem 0;
+  justify-content: space-around;
+  margin: 1rem 0;
   width: 15rem;
+  height: 5rem;
   border-radius: 40px;
   border-radius: 34px;
   background: #23897f;
-  font-size: 22px;
+  font-size: 20px;
+  padding: 0.5rem;
   color: #fff;
   box-shadow: 10px 10px 31px #e7e6e6, -10px -10px 31px #ffffff;
 }
 
 h4 {
   color: #2c3e50;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 select,
@@ -130,5 +132,6 @@ option {
   display: flex;
   justify-content: space-evenly;
   margin: 1rem;
+  padding: 1rem;
 }
 </style>
