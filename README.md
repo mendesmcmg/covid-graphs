@@ -6,25 +6,26 @@ Projeto desenvolvido usando Vue.js para apresentar gráficos sobre os números d
 ## :books: Bibliotecas utilizadas
 Para a construção dos gráficos, foram utilizadas as bibliotecas [Chart.js](https://www.chartjs.org) e [vue-chartjs](https://vue-chartjs.org).
 
-## Project setup
+## :wrench: Configuração do Projeto
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Compila e faz hot-reloads para desenvolvimento
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Compila e minimiza para produção
 ```
 yarn build
 ```
 
-### Lints and fixes files
+### Encarrega lint e conserta arquivos
 ```
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Customizar configurações
+Ver [Configuration Reference](https://cli.vuejs.org/config/).
