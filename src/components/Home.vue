@@ -25,6 +25,11 @@
         </div>
       </div>
 
+      <div class="chart-container">
+        <AcumulatedCasesChart />
+        <AcumulatedDeathsChart />
+      </div>
+      
       <h4>Selecione a UF</h4>
       <select v-model="selectedUf">
         <option v-for="(item, key) in infoState" :value="item._id" :key="key">
@@ -34,19 +39,18 @@
       <p>Selecionado {{ selectedUf }}</p>
     </section>
   </div>
-  <div class="chart-container">
-    <BebeChart />
-    <BebeChart />
-  </div>
 </template>
 
 <script>
 import axios from "axios";
-import BebeChart from "./BebeChart";
+import AcumulatedCasesChart from "./AcumulatedCasesChart";
+import AcumulatedDeathsChart from "./AcumulatedDeathsChart";
+
 export default {
   name: "Home",
   components: {
-    BebeChart,
+    AcumulatedCasesChart,
+    AcumulatedDeathsChart
   },
   data() {
     return {
@@ -125,6 +129,6 @@ option {
 .chart-container {
   display: flex;
   justify-content: space-evenly;
-  margin: 1rem
+  margin: 1rem;
 }
 </style>

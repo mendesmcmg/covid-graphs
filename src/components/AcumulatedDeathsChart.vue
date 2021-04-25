@@ -16,8 +16,8 @@ export default {
             labels: response.data.semana.map((d, i)=> i),
             datasets: [
             {
-                label: "Casos Acumulados",
-                data: response.data.semana.map((d)=> d.casosAcumulado),
+                label: "Óbitos Acumulados",
+                data: response.data.semana.map((d)=> d.obitosAcumulado),
                 backgroundColor: "transparent",
                 borderColor: "rgba(1, 116, 188, 0.50)",
                 pointBackgroundColor: "rgba(171, 71, 188, 1)"
