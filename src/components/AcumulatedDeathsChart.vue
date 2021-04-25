@@ -29,7 +29,7 @@ export default {
             maintainAspectRatio: false,
             title: {
             display: true,
-            text: "Óbitos Acumulados"
+            text: "Óbitos Acumulados por Semana"
             }
         }
         );

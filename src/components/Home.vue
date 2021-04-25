@@ -22,13 +22,31 @@
             }}
           </p>
         </div>
+
+        <div class="vertical-container">
+          <h3>Casos novos</h3>
+          <p>
+            {{
+              info && new Intl.NumberFormat("pt-BR").format(info.confirmados.novos)
+            }}
+          </p>
+        </div>
+
+        <div class="vertical-container">
+          <h3>Óbitos novos</h3>
+          <p>
+            {{
+              info && new Intl.NumberFormat("pt-BR").format(info.obitos.novos)
+            }}
+          </p>
+        </div>
       </div>
 
       <div class="chart-container">
         <AcumulatedCasesChart />
         <AcumulatedDeathsChart />
       </div>
-      
+
       <h4>Selecione a UF</h4>
       <select v-model="selectedUf">
         <option v-for="(item, key) in infoState" :value="item._id" :key="key">
@@ -49,7 +67,7 @@ export default {
   name: "Home",
   components: {
     AcumulatedCasesChart,
-    AcumulatedDeathsChart
+    AcumulatedDeathsChart,
   },
   data() {
     return {
@@ -106,12 +124,12 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   margin: 1rem 0;
-  width: 15rem;
+  width: 10rem;
   height: 5rem;
   border-radius: 40px;
   border-radius: 34px;
   background: #23897f;
-  font-size: 20px;
+  font-size: 18px;
   padding: 0.5rem;
   color: #fff;
   box-shadow: 10px 10px 31px #e7e6e6, -10px -10px 31px #ffffff;

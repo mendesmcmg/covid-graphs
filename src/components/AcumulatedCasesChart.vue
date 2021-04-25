@@ -12,26 +12,27 @@ export default {
       .then((response) => {
         console.log(response);
         this.renderChart(
-        {
-            labels: response.data.semana.map((d, i)=> i),
+          {
+            labels: response.data.semana.map((d, i) => i),
             datasets: [
-            {
+              {
                 label: "Casos Acumulados",
-                data: response.data.semana.map((d)=> d.casosAcumulado),
+                data: response.data.semana.map((d) => d.casosAcumulado),
                 backgroundColor: "transparent",
                 borderColor: "rgba(1, 116, 188, 0.50)",
-                pointBackgroundColor: "rgba(171, 71, 188, 1)"
-            }
-            ]
-        },
-        {
+                pointBackgroundColor: "rgba(171, 71, 188, 1)",
+              },
+            ],
+          },
+          {
             responsive: true,
             maintainAspectRatio: false,
             title: {
-            display: true,
-            text: "Casos Acumulados"
-            }
-        }
+              display: true,
+              text: "Casos Acumulados por Semana",
+            },
+            
+          }
         );
       })
       .catch((error) => {
@@ -39,6 +40,6 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
-  }
-}
+  },
+};
 </script>
